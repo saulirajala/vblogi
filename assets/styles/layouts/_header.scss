@@ -1,6 +1,42 @@
 .banner .nav li {
-  @extend .nav-item;
+    @extend .nav-item;
 }
+
 .banner .nav a {
-  @extend .nav-link;
+    @extend .nav-link;
+}
+
+.page-header {
+    background-position: center;
+    background-size: cover;
+    height: $page-header-height - 300px;
+    @include media-breakpoint-up(sm){
+        height: $page-header-height - 200px;
+    }
+    @include media-breakpoint-up(md){
+        height: $page-header-height;
+    }
+    margin: 0;
+    position: relative;
+}
+.page-header__title {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 15px #333;
+    font-size: 10vw;
+    font-weight: 700;
+    @include media-breakpoint-up(xl){
+        font-size: 130px;
+    }
+}
+
+.page-header__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #3E3E3E;
+    background-image: radial-gradient(at 50% -16%, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.50) 190%);
+    background-blend-mode: normal,multiply;
 }

@@ -1,0 +1,13 @@
+.main {
+    @include make-col-ready();
+    @include media-breakpoint-up(md){
+        @include make-col(8);
+    }
+}
+.sidebar {
+    @include make-col-ready();
+
+    @include media-breakpoint-up(md){
+        @include make-col(4);
+    }
+}

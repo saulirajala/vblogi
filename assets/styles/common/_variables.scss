@@ -1,2 +1,23 @@
 // Colors
-$brand-primary:         #27ae60;
+$brand-primary: #27ae60;
+
+$page-header-height: 600px;
+
+$content-padding: 40px;
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+$grid-gutter-width-sm: 20px !default;
+$grid-gutter-width-base: 30px !default;
+$grid-gutter-width-lg: 80px !default;
+$grid-gutter-widths: (
+    xs: $grid-gutter-width-sm,
+    sm: $grid-gutter-width-sm,
+    md: $grid-gutter-width-lg,
+    lg: $grid-gutter-width-lg,
+    xl: $grid-gutter-width-lg
+) !default;
+
+$font-family-sans-serif: 'Roboto', sans-serif !default;
+$font-family-titles: 'Open Sans', sans-serif !default;
