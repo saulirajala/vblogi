@@ -233,11 +233,12 @@ function ir_register_post_metabox() {
 	) );
 	// Add new field
 	$cmb_post->add_field( array(
-		'name'            => __( 'Related post' ),
+		'name'            => __( 'Related food', 'cmb2' ),
 		'id'              => $prefix . 'related_food',
+		'desc'    => __('You can search foods by clinking search-icon', 'cmb2'),
 		'type'            => 'post_search_text', // This field type
 		// post type also as array
-		'post_type'       => 'post',
+		'post_type'       => 'food',
 		// Default is 'checkbox', used in the modal view to select the post type
 		'select_type'     => 'radio',
 		// Will replace any selection with selection from modal. Default is 'add'
