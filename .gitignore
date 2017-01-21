@@ -1,0 +1,22 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+
+.DS_Store
+*.log
+
+# Theme specific ignores that is not needed in production
+.editorconfig
+.eslintrc
+.gitattributes
+.github/CONTRIBUTING.md
+.github/ISSUE_TEMPLATE.md
+.travis.yml
+composer.*
+yarn.lock
+phpcs.xml
+dist
+bower_components
+node_modules
+npm-debug.log
+yarn-error.log
+vendor
