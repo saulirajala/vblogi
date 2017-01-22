@@ -21,9 +21,21 @@
 
 .archive-post {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: space-between;
+    margin-bottom: $grid-gutter-width-base / 2;
+    @include media-breakpoint-up(md){
+        flex-direction: row;
+        margin-bottom: $grid-gutter-width-base;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-bottom: 0;
+    }
+
     &:nth-child(odd) {
-        flex-direction: row-reverse;
+        @include media-breakpoint-up(md) {
+            flex-direction: row-reverse;
+        }
     }
 }
 
@@ -33,14 +45,15 @@
 
 .svg__container {
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     .archive-post:nth-child(odd) & {
-        right:0;
+        right: 0;
     }
 }
+
 .svg__self {
     display: block;
     width: 100%;
@@ -48,9 +61,11 @@
     background: transparent;
     fill: white;
 }
+
 .archive-post:nth-child(odd) .svg_self--odd {
     display: none;
 }
+
 .archive-post:nth-child(even) .svg_self--even {
     display: none;
 }

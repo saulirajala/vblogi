@@ -1,5 +1,4 @@
 .banner {
-    position: fixed;
     height: $header-height;
     z-index: 999;
     width: 100%;
@@ -9,6 +8,9 @@
     justify-content: space-around;
     padding: 0 15px;
     box-shadow: 0 0 20px #ccc;
+    @include media-breakpoint-up(md){
+        position: fixed;
+    }
     .sticky & {
         height: $header-height / 2;
     }
