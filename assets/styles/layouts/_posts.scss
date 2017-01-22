@@ -28,9 +28,6 @@
         flex-direction: row;
         margin-bottom: $grid-gutter-width-base;
     }
-    @include media-breakpoint-up(xl) {
-        margin-bottom: 0;
-    }
 
     &:nth-child(odd) {
         @include media-breakpoint-up(md) {
@@ -41,6 +38,11 @@
 
 .image-container {
     position: relative;
+    img {
+        @include media-breakpoint-up(md){
+            max-width: none;
+        }
+    }
 }
 
 .svg__container {
