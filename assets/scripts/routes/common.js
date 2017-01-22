@@ -3,6 +3,30 @@ export default {
     // JavaScript to be fired on all pages
   },
   finalize() {
-    // JavaScript to be fired on all pages, after page specific JS is fired
+    /**
+     * Add sticky-class to header, when reached scrollDistance by scrolling
+     *
+     * @param scrollDistance
+     */
+    function makeHeaderSticky(scrollDistance) {
+      let htmlElement = $('html');
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > scrollDistance) {
+          htmlElement.addClass("sticky");
+        }
+        else {
+          htmlElement.removeClass("sticky");
+        }
+      });
+      if ($(this).scrollTop() > scrollDistance) {
+        htmlElement.addClass("sticky");
+      }
+    }
+
+    /**
+     * Sticky header after scroll
+     */
+
+    makeHeaderSticky(121);
   },
 };
