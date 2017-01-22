@@ -49,6 +49,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
      */
     add_theme_support('post-thumbnails');
+	set_post_thumbnail_size( 300, 300, true );
 	add_image_size( 'page-header', 1920, 600, true );
 
     /**

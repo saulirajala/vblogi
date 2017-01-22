@@ -18,3 +18,38 @@
 .meta__taxonomies {
     line-height: 1;
 }
+
+.archive-post {
+    display: flex;
+    &:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+}
+
+.image-container {
+    position: relative;
+}
+
+.svg__container {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    .archive-post:nth-child(odd) & {
+        right:0;
+    }
+}
+.svg__self {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    fill: white;
+}
+.archive-post:nth-child(odd) .svg_self--odd {
+    display: none;
+}
+.archive-post:nth-child(even) .svg_self--even {
+    display: none;
+}

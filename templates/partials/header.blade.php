@@ -12,4 +12,6 @@
         @endif
     </nav>
 </header>
-@include('partials.page-header')
+@if (is_single())
+    @include('partials.page-header')
+@endif
