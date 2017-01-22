@@ -118,3 +118,18 @@ function title() {
 
 	return get_the_title();
 }
+
+function outputNutrients( $ravintoaineet, $finnish_names, $related_food_id ) {
+	ob_start();
+	?>
+	<ul class="list-group">
+		<?php foreach ( $ravintoaineet as $ravintoaine ) : ?>
+			<li class="list-group-item justify-content-between">
+				<span class="nutrient__label"><?php echo esc_html( $finnish_names[ $ravintoaine ] ); ?>:</span>
+				<span class="nutrient__value"><?php echo esc_html( round( get_post_meta( $related_food_id, $ravintoaine, true ), 0 ) ); ?></span>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+	<?php
+	return ob_get_clean();
+}

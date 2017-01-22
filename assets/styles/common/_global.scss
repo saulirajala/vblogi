@@ -19,16 +19,16 @@
 }
 
 .sidebar {
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         margin-top: 40px;
     }
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
         padding-left: 30px;
     }
 }
 
 .main {
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
         padding-right: 30px;
     }
 }
