@@ -1,4 +1,20 @@
 .post {
-    margin-bottom: 40px;
     @include content-box();
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 40px;
+    }
+}
+
+.meta__container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.meta__categories {
+    margin-bottom: 6px;
+}
+
+.meta__taxonomies {
+    line-height: 1;
 }

@@ -1,3 +1,22 @@
 .sidebar-container {
     @include content-box();
 }
+
+.nutrients__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.nutrients__helper {
+    align-self: flex-end;
+}
+
+.nutrient-list {
+    li:nth-child(odd) {
+        background-color: #DDDDDD;
+    }
+}
+
+.nutrient {
+    padding: 5px 5px;
+}

@@ -38,20 +38,24 @@ $finnish_names = array(
 	'ir_fosfori'              => __( 'Fosfori', 'cmb2' ),
 	'ir_seleeni'              => __( 'Seleeni', 'cmb2' ),
 	'ir_sinkki'               => __( 'Sinkki', 'cmb2' ),
-);
+); ?>
 
-echo '<h2 class="nutrients__title">Ravintoaineet</h2>';
+<div class="nutrients__container">
+    <h2 class="nutrients__title">Ravintoaineet</h2>
+    <small class="text-muted nutrients__helper">per 100g<br></small>
+    <ul class="list-group nutrient-list">
+		<?php
+		$perusravintoaineet = get_post_meta( $post_id, 'ir_perusravintoaineet', true ); //array
+		echo ( is_array( $perusravintoaineet ) ) ? \App\outputNutrients( $perusravintoaineet, $finnish_names, $related_food_id ) : '';
 
-$perusravintoaineet = get_post_meta( $post_id, 'ir_perusravintoaineet', true ); //array
-echo ( is_array( $perusravintoaineet ) ) ? \App\outputNutrients( $perusravintoaineet, $finnish_names, $related_food_id ) : '';
+		$hiilihydraattifraktiot = get_post_meta( $post_id, 'ir_hiilihydraattifraktiot', true ); //array
+		echo ( is_array( $hiilihydraattifraktiot ) ) ? \App\outputNutrients( $hiilihydraattifraktiot, $finnish_names, $related_food_id ) : '';
 
-$hiilihydraattifraktiot = get_post_meta( $post_id, 'ir_hiilihydraattifraktiot', true ); //array
-echo ( is_array( $hiilihydraattifraktiot ) ) ? \App\outputNutrients( $hiilihydraattifraktiot, $finnish_names, $related_food_id ) : '';
+		$vitamiinit = get_post_meta( $post_id, 'ir_vitamiinit', true ); //array
+		echo ( is_array( $vitamiinit ) ) ? \App\outputNutrients( $vitamiinit, $finnish_names, $related_food_id ) : '';
 
-$vitamiinit = get_post_meta( $post_id, 'ir_vitamiinit', true ); //array
-echo ( is_array( $vitamiinit ) ) ? \App\outputNutrients( $vitamiinit, $finnish_names, $related_food_id ) : '';
-
-$kivennaisaineet = get_post_meta( $post_id, 'ir_kivennaisaineet', true ); //array
-echo ( is_array( $kivennaisaineet ) ) ? \App\outputNutrients( $kivennaisaineet, $finnish_names, $related_food_id ) : '';
-
-echo '<small class="text-muted">Lähde: <a href="www.fineli.fi" class="text-muted" target="_blank">Fineli</a></small>';
+		$kivennaisaineet = get_post_meta( $post_id, 'ir_kivennaisaineet', true ); //array
+		echo ( is_array( $kivennaisaineet ) ) ? \App\outputNutrients( $kivennaisaineet, $finnish_names, $related_food_id ) : ''; ?>
+    </ul>
+    <small class="text-muted">Lähde: <a href="www.fineli.fi" class="text-muted" target="_blank">Fineli.fi</a></small>
+</div>

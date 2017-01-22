@@ -12,7 +12,7 @@ export default {
     }
 
     moveComments();
-    $(window).resize(function(){
+    $(window).resize(function () {
       moveComments();
     });
 

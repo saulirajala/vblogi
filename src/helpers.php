@@ -122,14 +122,63 @@ function title() {
 function outputNutrients( $ravintoaineet, $finnish_names, $related_food_id ) {
 	ob_start();
 	?>
-	<ul class="list-group">
-		<?php foreach ( $ravintoaineet as $ravintoaine ) : ?>
-			<li class="list-group-item justify-content-between">
-				<span class="nutrient__label"><?php echo esc_html( $finnish_names[ $ravintoaine ] ); ?>:</span>
-				<span class="nutrient__value"><?php echo esc_html( round( get_post_meta( $related_food_id, $ravintoaine, true ), 0 ) ); ?></span>
-			</li>
-		<?php endforeach; ?>
-	</ul>
+	<?php foreach ( $ravintoaineet as $ravintoaine ) : ?>
+		<li class="list-group-item justify-content-between nutrient">
+			<span class="nutrient__label"><?php echo esc_html( $finnish_names[ $ravintoaine ] ); ?>:</span>
+			<span class="nutrient__value">
+				<?php echo esc_html( round( get_post_meta( $related_food_id, $ravintoaine, true ), 0 ) ); ?>
+				<?php echo esc_html( get_unit( $ravintoaine ) ); ?>
+			</span>
+		</li>
+	<?php endforeach; ?>
 	<?php
 	return ob_get_clean();
+}
+
+function get_unit( $metakey ) {
+	$unit = array();
+	$unit['ir_foodId'] = '';
+	$unit['ir_kuitu'] = 'kcal';
+	$unit['ir_energy'] = 'g';
+	$unit['ir_hiilihydraatti'] = 'g';
+	$unit['ir_rasva'] = 'g';
+	$unit['ir_proteiini'] = 'g';
+	$unit['ir_sokeri'] = 'g';
+	$unit['ir_kalsium'] = 'µg';
+	$unit['ir_rauta'] = 'mg';
+	$unit['ir_jodidi'] = 'mg';
+	$unit['ir_kalium'] = 'mg';
+	$unit['ir_magnesium'] = 'mg';
+	$unit['ir_natrium'] = 'mg';
+	$unit['ir_suola'] = 'µg';
+	$unit['ir_fosfori'] = 'mg';
+	$unit['ir_seleeni'] = 'µg';
+	$unit['ir_sinkki'] = 'µg';
+	$unit['ir_folaatti'] = 'µg';
+	$unit['ir_niasiiniekvivalentti'] = 'mg';
+	$unit['ir_niasiini'] = 'µg';
+	$unit['ir_b6'] = 'mg';
+	$unit['ir_b2'] = 'mg';
+	$unit['ir_b1'] = 'µg';
+	$unit['ir_b12'] = 'mg';
+	$unit['ir_C'] = 'mg';
+	$unit['ir_A_RAE'] = 'mg';
+	$unit['ir_karotenoidit'] = 'mg';
+	$unit['ir_D'] = 'mg';
+	$unit['ir_E'] = 'µg';
+	$unit['ir_K'] = 'mg';
+
+	return $unit[ $metakey ];
+}
+
+function get_value_and_unit( $related_food_id, $metakey ) {
+	// Bail early, if no related_food_id is set
+	if ( $related_food_id <= 0 ) {
+		return '';
+	}
+	$text = ' ';
+	$text .= round( get_post_meta( $related_food_id, $metakey, true ), 0 );
+	$text .= get_unit( $metakey );
+
+	return $text;
 }
